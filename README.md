@@ -1,21 +1,24 @@
-# WEB system
-- [ ] Replace "WEB system" with your system name
-
+# Recipie getter
 ## Description
-- [ ] Provide WEB system description in few sentences - its purpose, users, etc.
+Recipie getter allows users to search recipies by ingrediants, diat preferances and cook time. It returns a list of recipies that matches teh query.
 
 ## Entity definition
-- [ ] Define the entity ("object" that will be manipulated) of WEB system
-- [ ] Entity should have a name
-- [ ] Entity should have 3 mandatory attributes:
-    - [ ] ID - depending on specific service this could be a number or string
-    - [ ] Creation date - (if applicable for specific service) ISO 8601 format date string
-    - [ ] Modification date - (if applicable for specific service) ISO 8601 format date string
-- [ ] Entity should have at least 5 custom attributes
-    - [ ] Each attribute should have a type defined: number, string, ISO 8601 date string, boolean, object, array or other
-    - [ ] Each attribute should have restrictions defined: list of constants, or number range, or string length, or string format, or object schema, or array schema or other. For example, you can use `joi` language to define restrictions: https://github.com/hapijs/joi/blob/v13.1.2/API.md
+Recipie:
+- ID    Number  Entity identifier
+- uri	string	Ontology identifier
+- label	string	Recipe title
+- image	string	Image URL
+- source	string	Source site identifier
+- url	string	Original recipe URL
+- yield	integer	Number of servings
+- calories	float	Total energy, kcal
+- ingredients	Ingredient[]	Ingredients list
+- dietLabels	enum[]	Diet labels: “balanced”, “high-protein”, “high-fiber”, “low-fat”, “low-carb”, “low-sodium” (labels are per serving)
+- healthLabels	enum[]	Health labels: “vegan”, “vegetarian”, “paleo”, “dairy-free”, “gluten-free”, “wheat-free”, “fat-free”, “low-sugar”, “egg-free”, “peanut-free”, “tree-nut-free”, “soy-free”, “fish-free”, “shellfish-free” (labels are per serving)
+
 
 ## API definition
+
 - [ ] Define specific service (konkrečios paslaugos) API methods that WEB system is going to use
 - [ ] Optionally define additional API methods that WEB system is going to expose
 - [ ] API should have at least 4 methods
