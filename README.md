@@ -11,13 +11,18 @@ Recipie:
 - source	string	Source site identifier
 - url	string	Original recipe URL
 - yield	integer	Number of servings
-- calories	float	Total energy, kcal
+- calories		Total energy, kcal
 - ingredients	Ingredient[]	Ingredients list
 - dietLabels	enum[]	Diet labels: “balanced”, “high-protein”, “high-fiber”, “low-fat”, “low-carb”, “low-sodium” (labels are per serving)
 - healthLabels	enum[]	Health labels: “vegan”, “vegetarian”, “paleo”, “dairy-free”, “gluten-free”, “wheat-free”, “fat-free”, “low-sugar”, “egg-free”, “peanut-free”, “tree-nut-free”, “soy-free”, “fish-free”, “shellfish-free” (labels are per serving)
 
 
 ## API definition
+GetRecipie(int ID) - gets recipie by its id
+
+GetRecipie(int calories | int yield | ingredients []) returns top 10 recipes by attribute(s) 
+DeleteRecipie(int ID) removes a recipie by id
+UpdateRecipie(int ID, int calories | int yield | Ingredient ingredient, in pos| Ingredient[] ingrediants) updates recipie by ID and attribute 
 
 - [ ] Define specific service (konkrečios paslaugos) API methods that WEB system is going to use
 - [ ] Optionally define additional API methods that WEB system is going to expose
@@ -33,7 +38,7 @@ Recipie:
 - [ ] Each method should have HTTP method defined
 - [ ] Each method should have URI defined (use {id} as entity ID placeholder)
 - [ ] Should return all 4xx errors in unified format. Define format using `joi` language
-- [ ] Should return all 5xx errors in unified format. Define format using `joi` language
+
 
 ## UI definition
 - [ ] Define the structure of how visually the WEB system is going to look like
