@@ -21,22 +21,24 @@ Recipie:
 
 ## API definition
 GetRecipie(int ID) - gets recipie by its id
+
 GET https://api.edamam.com/search?r=[ID]&app_id=123&app_key=123
+
 returns 414 if too many arguments provided (GET string too long)
 
-GetRecipie(int calories | int ingredient number | int diet type string | int tim ) returns top 10 recipes by attribute(s) 
-GET https://api.edamam.com/search?q=top_ingrediant&app_id=123&app_key=123&from=0&to=10&calories=min-max&ingr=numIngrediants&dishType=dishType$time=min-max
-returns 414 if too many arguments provided (GET string too long)
+GetRecipie(int calories | int ingredient number | int diet type string | int tim ) returns top 10 recipes by attribute(s)  
+GET https://api.edamam.com/search?q=top_ingrediant&app_id=123&app_key=123&from=0&to=10&calories=min-max&ingr=numIngrediants&dishType=dishType$time=min-max  
+returns 414 if too many arguments provided (GET string too long)  
 
-DeleteRecipie(int ID) removes a recipie by id
-DELETE api/userID/recipieID
-returns 401 if userID does't match seasion userID
-returns 404 if resource doesn't exsist
+DeleteRecipie(int ID) removes a recipie by id  
+DELETE api/userID/recipieID  
+returns 401 if userID does't match seasion userID  
+returns 404 if resource doesn't exsist  
 
-UpdateRecipie(int ID, int calories | int yield) updates recipie by ID and attribute 
-POST api/userID/recipieID/atribute=newValue
-returns 401 if userID does't match seasion userID
-returns 404 if resource doesn't exsist
+UpdateRecipie(int ID, int calories | int yield) updates recipie by ID and attribute   
+POST api/userID/recipieID/atribute=newValue  
+returns 401 if userID does't match seasion userID  
+returns 404 if resource doesn't exsist  
 
 ## UI definition
 https://wireframe.cc/lUPkR2
