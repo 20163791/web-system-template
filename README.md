@@ -20,11 +20,9 @@ Recipie:
 
 
 ## API definition
-GetRecipie(int ID) - gets recipie by its id
-
-GET https://api.edamam.com/search?r=[ID]&app_id=123&app_key=123
-
-returns 414 if too many arguments provided (GET string too long)
+GetRecipie(int ID) - gets recipie by its id  
+GET https://api.edamam.com/search?r=[ID]&app_id=123&app_key=123  
+returns 414 if too many arguments provided (GET string too long)  
 
 GetRecipie(int calories | int ingredient number | int diet type string | int tim ) returns top 10 recipes by attribute(s)  
 GET https://api.edamam.com/search?q=top_ingrediant&app_id=123&app_key=123&from=0&to=10&calories=min-max&ingr=numIngrediants&dishType=dishType$time=min-max  
