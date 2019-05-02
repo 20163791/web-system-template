@@ -1,23 +1,19 @@
 # Recipie getter
 ## Description
-Recipie getter allows users to search for recipies by a main ingrediant (ingrediants?), yield, calorie range and/or diet preferances 
-The service gets the top 10 recipies that match the search and then allowes the suer to remove recipies from the lest, at wich point the next matching recipie is added.
-The service shows yield and calories, and allowes the user to see how certain values would change if the yield was bigger/smaller or they wanted more/fewer calories in the recipie.
+Recipie getter allows users to search for recipies by a main ingrediant.
+The service gets a recipie and every time the user clicks next it fetches a new one. If the user hits "precious", it fetches the previous recipie.
+The service shows yield and calories and igrediants. 
+The service requires that a user signs up and logs in to use the service. The user can delete their account and change their password
 
 ## Entity definition
 Recipie:
-- ID    Number (1 to 999999999) Entity identifier
 - uri	string (4000)	Ontology identifier
 - label	string (1000)	Recipe title
 - image	string	(4000) Image URL
-- source	string (4000)	Source site identifier
 - url	string (4000)	Original recipe URL
 - yield	integer(1 to 999)	Number of servings
 - calories	integer (1 to 99999) Total energy, kcal
 - ingredients	Ingredient[]	Ingredients list
-- dietLabels	enum[]	Diet labels: “balanced”, “high-protein”, “high-fiber”, “low-fat”, “low-carb”, “low-sodium” (labels are per serving)
-- healthLabels	enum[]	Health labels: “vegan”, “vegetarian”, “paleo”, “dairy-free”, “gluten-free”, “wheat-free”, “fat-free”, “low-sugar”, “egg-free”, “peanut-free”, “tree-nut-free”, “soy-free”, “fish-free”, “shellfish-free” (labels are per serving)
-
 
 ## API definition
 GetRecipie(int ID) - gets recipie by its id  
@@ -30,15 +26,25 @@ GET https://api.edamam.com/search?q=top_ingrediant&app_id=123&app_key=123&from=0
 returns 414 if too many arguments provided (GET string too long)  
 error 404 ID not found
 
-DeleteRecipie(int ID) removes a recipie by id  
-DELETE api/:RecipieID  
-returns 401 if userID does't match seasion userID  
-returns 404 if resource doesn't exsist  
+register(email, pass) adds a user to the database
+PUT api/register
+return 505 if email already in database
+return 500 if other error
 
-UpdateRecipie(int ID, int calories | int yield) updates recipie by ID and attribute   
-POST api/:RecipieID/atribute=newValue  
-returns 401 if userID does't match seasion userID  
-returns 404 if resource doesn't exsist  
+login(email, pass) logs a user in (provides a token)
+POST api/login
+retunr 500 if error
+
+changePass(email, pass, newpass, newpass2) updates user password in db
+POST api/change/pass
+ reutrn 401 if incorect current pass
+ return 400 if new passwords don't match
+ return 500 if other errors
+
+DeleteAccount(emai, token, pass) removes an account from db
+DELETE api/:delete/account  
+returns 401 if pass doesnt match session passs
+return 500 if other
 
 ## UI definition
 https://wireframe.cc/lUPkR2
